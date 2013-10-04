@@ -1,0 +1,408 @@
+18)
+irb(main):001:0> puts 'Hola Mundo'
+Hola Mundo
+=> nil
+
+21)
+irb(main):001:0> puts "\t\n" 
+	
+=> nil
+irb(main):002:0> puts '\t\n' 
+\t\n
+=> nil
+
+22)
+irb(main):003:0> %q{hello world\n}
+=> "hello world\\n"
+irb(main):004:0> puts %q{hello world\n}
+hello world\n
+=> nil
+irb(main):005:0> %q{'a' 'b' 'c'}
+=> "'a' 'b' 'c'"
+irb(main):006:0> puts %q{'a' 'b' 'c'}
+'a' 'b' 'c'
+=> nil
+
+23)
+irb(main):007:0> %Q{hello world\n}
+=> "hello world\n"
+irb(main):008:0> puts %Q{hello world\n}
+hello world
+=> nil
+irb(main):009:0> %Q{"a" "b" "c"}
+=> "\"a\" \"b\" \"c\""
+irb(main):010:0> puts %Q{"a" "b" "c"}
+"a" "b" "c"
+=> nil
+
+24)
+irb(main):011:0> a = 4
+=> 4
+irb(main):012:0> b = 2
+=> 2
+irb(main):013:0> c = <<HERE
+irb(main):014:0" --#{a}--
+irb(main):015:0" --#{b}--
+irb(main):016:0" HERE
+=> "--4--\n--2--\n"
+irb(main):017:0> puts c
+--4--
+--2--
+=> nil
+
+25)
+irb(main):018:0> a = 4
+=> 4
+irb(main):019:0> b = 2
+=> 2
+irb(main):020:0> c = <<'HERE'
+irb(main):021:0' --#{a}--
+irb(main):022:0' --#{b}--
+irb(main):023:0' HERE
+=> "--\#{a}--\n--\#{b}--\n"
+irb(main):024:0> puts c
+--#{a}--
+--#{b}--
+=> nil
+
+26)
+irb(main):025:0> s = "hello"
+=> "hello"
+irb(main):026:0> s[0,2]
+=> "he"
+irb(main):027:0> s[-1,1]
+=> "o"
+irb(main):028:0> s[0,10]
+=> "hello"
+
+27)
+irb(main):029:0> g = "hello"
+=> "hello"
+irb(main):030:0> g << " world"
+=> "hello world"
+irb(main):031:0> puts g
+hello world
+=> nil
+
+28)
+irb(main):032:0> e = '.'*3
+=> "..."
+irb(main):033:0> puts e
+...
+=> nil
+
+29)
+irb(main):034:0> a = 1
+=> 1
+irb(main):035:0> "#{a=a+1} "*3
+=> "2 2 2 "
+irb(main):036:0> puts a
+2
+=> nil
+
+30)
+rb(main):037:0> %w[this is a test]
+=> ["this", "is", "a", "test"]
+irb(main):041:0> puts %w[this is a test]
+this
+is
+a
+test
+=> nil
+
+31)
+irb(main):042:0> %w[\t \n]
+=> ["\\t", "\\n"]
+irb(main):043:0> puts %w[\t \n]
+\t
+\n
+=> nil
+
+32)
+irb(main):044:0> %W[\t \n]
+=> ["\t", "\n"]
+irb(main):045:0> puts %W[\t \n]
+	
+
+=> nil
+
+33)
+rb(main):046:0> nils = Array.new(3)
+=> [nil, nil, nil]
+
+34)
+irb(main):047:0> zeros = Array.new(3, 0)
+=> [0, 0, 0]
+
+35)
+irb(main):048:0> x = [[1, 2], [3, 4]]
+=> [[1, 2], [3, 4]]
+irb(main):049:0> b = Array.new(x)
+=> [[1, 2], [3, 4]]
+irb(main):050:0> puts x
+1
+2
+3
+4
+=> nil
+irb(main):051:0> puts b
+1
+2
+3
+4
+=> nil
+
+36)
+irb(main):052:0> c = Array.new(3) { |i| 2 * i }
+=> [0, 2, 4]A
+
+37)
+irb(main):052:0> c = Array.new(3) { |i| 2 * i }
+=> [0, 2, 4]
+irb(main):053:0> a = ('a'..'e').to_a
+=> ["a", "b", "c", "d", "e"]
+irb(main):054:0> a[1, 1]
+=> ["b"]
+irb(main):055:0> a[-2, 2]
+=> ["d", "e"]
+irb(main):057:0> a[0..2]
+=> ["a", "b", "c"]
+irb(main):058:0> a[0...1]
+=> ["a"]
+irb(main):059:0> a[-2..-1]
+=> ["d", "e"]
+
+38)
+irb(main):060:0> a 
+=> ["a", "b", "c", "d", "e"]
+irb(main):061:0> a[0, 2] = %w{A B}
+=> ["A", "B"]
+irb(main):062:0> a
+=> ["A", "B", "c", "d", "e"]
+irb(main):063:0> a[2..5] = %w{C D E}
+=> ["C", "D", "E"]
+irb(main):064:0> a
+=> ["A", "B", "C", "D", "E"]
+irb(main):065:0> a [0, 0] = [1, 2, 3]
+=> [1, 2, 3]
+irb(main):066:0> a
+=> [1, 2, 3, "A", "B", "C", "D", "E"]
+irb(main):067:0> a [0, 2] = []
+=> []
+irb(main):068:0> a
+=> [3, "A", "B", "C", "D", "E"]
+irb(main):069:0> a[-1, 1] = ['Z']
+=> ["Z"]
+irb(main):070:0> a
+=> [3, "A", "B", "C", "D", "Z"]
+irb(main):071:0> a[-2,2] = nil
+=> nil
+irb(main):072:0> a
+=> [3, "A", "B", "C", nil]
+
+39)
+irb(main):073:0> a = (1...4).to_a
+=> [1, 2, 3]
+irb(main):074:0> a = a + [4, 5]
+=> [1, 2, 3, 4, 5]
+irb(main):075:0> a += [[6, 7, 8]]
+=> [1, 2, 3, 4, 5, [6, 7, 8]]
+irb(main):076:0> a = a + 9
+TypeError: can't convert Fixnum into Array
+	from (irb):76:in `+'
+	from (irb):76
+	from /usr/bin/irb1.9.3:12:in `<main>'
+
+40)
+irb(main):077:0> x = %w{a b c b a}
+=> ["a", "b", "c", "b", "a"]
+irb(main):078:0> x = x - %w{b c d}
+=> ["a", "a"]
+
+41)
+irb(main):079:0> z = [0]*8
+=> [0, 0, 0, 0, 0, 0, 0, 0]
+
+42)
+irb(main):080:0> a = []
+=> []
+irb(main):081:0> a << 1
+=> [1]
+irb(main):082:0> a << 2 << 3
+=> [1, 2, 3]
+irb(main):083:0> a << [4, 5, 6]
+=> [1, 2, 3, [4, 5, 6]]
+irb(main):084:0> a.concat [7, 8]
+=> [1, 2, 3, [4, 5, 6], 7, 8]
+
+43)
+irb(main):085:0> a = [1, 1, 2, 2, 3, 3, 4]
+=> [1, 1, 2, 2, 3, 3, 4]
+irb(main):086:0> b =[5, 5, 4, 4, 3, 3, 2]
+=> [5, 5, 4, 4, 3, 3, 2]
+irb(main):087:0> c = a | b
+=> [1, 2, 3, 4, 5]
+irb(main):088:0> d = b | a
+=> [5, 4, 3, 2, 1]
+irb(main):089:0> e = a & b
+=> [2, 3, 4]
+irb(main):090:0> f = b & a
+=> [4, 3, 2]
+
+44)
+irb(main):091:0> a = 1..10
+=> 1..10
+irb(main):092:0> a.class
+=> Range
+irb(main):093:0> a.to_a
+=> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+irb(main):094:0> b = 1...10
+=> 1...10
+irb(main):095:0> b.to_a
+=> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+irb(main):096:0> b.include? 10
+=> false
+irb(main):097:0> b.include? 8
+=> true
+irb(main):098:0> b.step(2) {|x| print "#{x} "}
+1 3 5 7 9 => 1...10
+irb(main):099:0> 1..3.to_a
+NoMethodError: undefined method `to_a' for 3:Fixnum
+	from (irb):99
+	from /usr/bin/irb1.9.3:12:in `<main>'
+
+45)
+irb(main):100:0> r = 0...100
+=> 0...100
+irb(main):101:0> r.member? 50
+=> true
+irb(main):102:0> r.include? 99.9
+=> true
+irb(main):103:0> r.member? 99.9
+=> true
+
+46)
+irb(main):104:0> true.class
+=> TrueClass
+irb(main):105:0> false.class
+=> FalseClass
+irb(main):106:0> puts "hello" if 0
+hello
+=> nil
+irb(main):107:0> puts "hello" if nil
+=> nil
+irb(main):108:0> puts "hello" if ""
+(irb):108: warning: string literal in condition
+hello
+=> nil
+
+47)
+irb(main):109:0> x = :sym
+=> :sym
+irb(main):110:0> x.class
+=> Symbol
+irb(main):111:0> x == 'sym'
+=> false
+irb(main):112:0> x == :sym
+=> true
+irb(main):113:0> z = :'a long symbol'
+=> :"a long symbol"
+irb(main):114:0> z.class
+=> Symbol
+irb(main):115:0> x == 'sym'.to_sym
+=> true
+irb(main):116:0> x.to_s == 'sym'
+=> true
+
+48)
+irb(main):117:0> s = "Ruby"
+=> "Ruby"
+irb(main):118:0> t = s
+=> "Ruby"
+irb(main):119:0> t[-1] = ""
+=> ""
+irb(main):120:0> print s
+Rub=> nil
+
+49)
+irb(main):124:0> "%d %s" % [3, "rubies"]
+=> "3 rubies"
+
+50)
+irb(main):125:0> x, y = 4, 5
+=> [4, 5]
+irb(main):126:0> z = x > y ? x : y
+=> 5
+irb(main):127:0> x, y, z = [1, 2, 3]
+=> [1, 2, 3]
+irb(main):128:0> x
+=> 1
+irb(main):129:0> y
+=> 2
+irb(main):130:0> z
+=> 3
+
+51)
+irb(main):131:0> x = { :a => 1, :b => 2 }
+=> {:a=>1, :b=>2}
+irb(main):132:0> x.keys
+=> [:a, :b]
+irb(main):133:0> x.values
+=> [1, 2]
+irb(main):134:0> x[:c]
+=> nil
+irb(main):135:0> x[:c] = 3
+=> 3
+irb(main):136:0> x
+=> {:a=>1, :b=>2, :c=>3}
+irb(main):137:0> x.delete('a')
+=> nil
+irb(main):138:0> x
+=> {:a=>1, :b=>2, :c=>3}
+irb(main):139:0> x.delete(:a)
+=> 1
+irb(main):140:0> x
+=> {:b=>2, :c=>3}
+irb(main):141:0> x = { :a => 1, :b => 2, :c => 4 }
+=> {:a=>1, :b=>2, :c=>4}
+irb(main):142:0> x.delete_if { |k, v| v % 2 == 0 }
+=> {:a=>1}
+irb(main):143:0> x
+=> {:a=>1}
+
+52) La sentencia yield permite ejecutar un bloque de código (el cual puede recibir parámetros) en un punto
+    concreto de la función donde se encuentra definida. El bloque de código se pasa como argumento en la
+    llamada a la función donde se encuentra definida la sentencia yield. Ver el ejemplo que sigue:
+
+    def test
+      puts "Estoy en test"
+      yield 4, 5
+      puts "Estoy en test"
+    end
+
+    test { |a, b| puts "Estoy en el bloque con valores de parametros a y b: #{a} y #{b}" }
+
+53)
+irb(main):145:0> counts = Hash.new(0)
+=> {}
+irb(main):146:0> puts counts
+{}
+=> nil
+irb(main):147:0> counts = {}
+=> {}
+irb(main):148:0> puts counts
+{}
+=> nil
+
+54)
+irb(main):149:0> 'hello world, hello LPP'.scan /\w+/
+=> ["hello", "world", "hello", "LPP"]
+
+55)
+irb(main):150:0> c = { :a => 3, :b => 2, :c => 1 }
+=> {:a=>3, :b=>2, :c=>1}
+irb(main):151:0> c.keys.sort.each { |k| puts c[k] }
+3
+2
+1
+=> [:a, :b, :c]
